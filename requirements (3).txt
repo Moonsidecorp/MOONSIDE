@@ -1,0 +1,12 @@
+# MOONSIDE Intelligence Platform — Requirements
+# Deploy: Streamlit Cloud (streamlit.io/cloud)
+
+streamlit>=1.35.0
+groq>=0.9.0
+google-generativeai>=0.7.0
+yfinance>=0.2.40
+requests>=2.31.0
+Pillow>=10.0.0
+PyMuPDF>=1.23.0
+pytz>=2024.1
+bcrypt>=4.1.0
