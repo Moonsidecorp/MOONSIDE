@@ -45,37 +45,52 @@ from playwright.sync_api import sync_playwright
 # saat jalan di GitHub Actions). JANGAN hardcode token/credential di sini.
 # ============================================================
 
+def env_or(name: str, default: str) -> str:
+    """
+    Seperti os.environ.get(name, default), TAPI juga pakai default kalau
+    env var ADA tapi isinya string kosong "".
+
+    Ini penting khusus untuk env var yang datang dari GitHub Secrets: kalau
+    sebuah Secret belum pernah diisi di repo, GitHub Actions tetap mengoper
+    env var itu ke proses (karena sudah dideklarasikan di ***env:*** pada
+    engine.yml), tapi isinya "" -- bukan "tidak ada". os.environ.get biasa
+    tidak akan fallback ke default dalam kasus ini, jadi butuh helper ini.
+    """
+    val = os.environ.get(name)
+    return val if val else default
+
+
 class Config:
     # --- Google Sheets ---
-    SHEET_ID = os.environ.get(
+    SHEET_ID = env_or(
         "MOONSIDE_SHEET_ID",
         "1YjTmrg7mZgIIVUg8jf4MZ7vvv_X6KJGlGnBqgUyg-zs",
     )
-    WATCHLIST_TAB_NAME = os.environ.get("WATCHLIST_TAB_NAME", "📋 Master Tracking (PLAN A)")
-    WATCHLIST_COLUMN_NAME = os.environ.get("WATCHLIST_COLUMN_NAME", "Ticker")
+    WATCHLIST_TAB_NAME = env_or("WATCHLIST_TAB_NAME", "📋 Master Tracking (PLAN A)")
+    WATCHLIST_COLUMN_NAME = env_or("WATCHLIST_COLUMN_NAME", "Ticker")
     # Baris di mana header kolom (No, Plan, Sektor, Ticker, ...) berada di
     # tab watchlist. Di "Master Tracking (PLAN A)" ada 4 baris judul/catatan
     # sebelum header asli, jadi header ada di baris ke-5 (bukan baris 1).
-    WATCHLIST_HEADER_ROW = int(os.environ.get("WATCHLIST_HEADER_ROW", "5"))
-    SENT_LOG_TAB_NAME = os.environ.get("SENT_LOG_TAB_NAME", "Engine_Sent_Log")
+    WATCHLIST_HEADER_ROW = int(env_or("WATCHLIST_HEADER_ROW", "5"))
+    SENT_LOG_TAB_NAME = env_or("SENT_LOG_TAB_NAME", "Engine_Sent_Log")
     GOOGLE_SERVICE_ACCOUNT_JSON = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
 
     # --- Telegram ---
     TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    TELEGRAM_CHANNEL_ID = os.environ.get("TELEGRAM_CHANNEL_ID", "-1004318390858")
+    TELEGRAM_CHANNEL_ID = env_or("TELEGRAM_CHANNEL_ID", "-1004318390858")
 
     # --- IDX ---
     # Halaman ini SSR (Nuxt) -- data pengumuman tertanam di window.__NUXT__,
     # bukan lewat endpoint JSON terpisah. Makanya dibaca pakai Playwright.
-    IDX_ANNOUNCEMENT_URL = os.environ.get(
+    IDX_ANNOUNCEMENT_URL = env_or(
         "IDX_ANNOUNCEMENT_URL",
         "https://www.idx.co.id/id/berita/pengumuman/",
     )
     # Berapa halaman (10 pengumuman/halaman, semua emiten) yang dicoba
     # dibaca tiap run. Naikkan kalau ada pengumuman yang kelewat.
-    IDX_PAGES_TO_FETCH = int(os.environ.get("IDX_PAGES_TO_FETCH", "3"))
+    IDX_PAGES_TO_FETCH = int(env_or("IDX_PAGES_TO_FETCH", "3"))
     # Buffer aman: skip pengumuman yang lebih tua dari N hari.
-    LOOKBACK_DAYS = int(os.environ.get("LOOKBACK_DAYS", "2"))
+    LOOKBACK_DAYS = int(env_or("LOOKBACK_DAYS", "2"))
 
     @classmethod
     def validate(cls):
