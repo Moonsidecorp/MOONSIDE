@@ -411,6 +411,10 @@
   line-height: 1.18;
   letter-spacing: -0.01em;
   margin-bottom: 14px;
+  background: linear-gradient(90deg, var(--text) 35%, var(--blue) 115%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .section-head p {
