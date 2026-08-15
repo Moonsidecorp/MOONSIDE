@@ -1,0 +1,137 @@
+/* ============================================================
+   MOONSIDE — DESIGN SYSTEM
+   Dark, premium, institutional fintech. Bloomberg Terminal x
+   modern SaaS x Moonside cosmic identity.
+   ============================================================ */
+
+:root {
+  /* --- Surfaces --- */
+  --bg: #080B12;
+  --bg-elevated: #0C111C;
+  --surface: #0F1521;
+  --surface-hover: #131A29;
+  --border: #1D2635;
+  --border-soft: #161D2A;
+
+  /* --- Text --- */
+  --text: #EDEFF5;
+  --text-dim: #8891A5;
+  --text-faint: #56607A;
+
+  /* --- Moonside Blue (primary accent) --- */
+  --blue: #5B8DFF;
+  --blue-dim: #2C4A8C;
+  --blue-glow: rgba(91, 141, 255, 0.16);
+  --blue-glow-strong: rgba(91, 141, 255, 0.28);
+
+  /* --- Semantic --- */
+  --green: #4FBE82;
+  --green-dim: rgba(79, 190, 130, 0.14);
+  --red: #E2695C;
+  --red-dim: rgba(226, 105, 92, 0.14);
+  --purple: #9B8CFF;
+  --purple-dim: rgba(155, 140, 255, 0.14);
+  --gray: #7C8699;
+
+  /* --- Typography --- */
+  --font-display: 'Geist', 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* --- Radius --- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 100px;
+
+  /* --- Shadow --- */
+  --shadow-card: 0 1px 0 rgba(255,255,255,0.02) inset, 0 12px 32px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--blue-dim); color: var(--text); }
+
+a { color: inherit; text-decoration: none; }
+
+.mono { font-family: var(--font-mono); }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #060810;
+  box-shadow: 0 0 0 0 var(--blue-glow);
+}
+
+.btn-primary:hover {
+  background: #6E9BFF;
+  box-shadow: 0 0 24px var(--blue-glow-strong);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-faint);
+  color: var(--text);
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Focus visibility --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOONSIDE — Market Intelligence Engine</title>
+<meta name="description" content="A structured trading journal built to help you plan, track, review, and improve every trade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="#" class="nav-brand">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="12.5" stroke="#5B8DFF" stroke-width="1"/>
+        <path d="M17 8.5C15.9 9.6 15.2 11.2 15.2 13C15.2 14.8 15.9 16.4 17 17.5C15.9 18.2 14.6 18.6 13.2 18.6C9.5 18.6 6.5 15.6 6.5 11.9C6.5 8.4 9.1 5.5 12.5 5.2C14.3 5.6 15.9 6.8 17 8.5Z" fill="#5B8DFF"/>
+      </svg>
+      <span class="nav-brand-name">MOONSIDE</span>
+    </a>
+
+    <div class="nav-links">
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#how-it-works">How It Works</a>
+      <a class="nav-link" href="#journal">Journal</a>
+      <a class="nav-link" href="#analytics">Analytics</a>
+      <a class="nav-link" href="#about">About</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="nav-link-login" href="#login">Log In</a>
+      <a class="btn btn-primary" href="#get-started">Get Started</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="mobile-menu" id="mobileMenu">
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#how-it-works">How It Works</a>
+      <a class="nav-link" href="#journal">Journal</a>
+      <a class="nav-link" href="#analytics">Analytics</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link-login" href="#login">Log In</a>
+      <a class="btn btn-primary" href="#get-started">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="container hero-grid">
+
+    <div class="hero-content">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> MARKET INTELLIGENCE ENGINE</div>
+
+      <h1>Trade With a Plan.<br>Review With <span class="accent">Data</span>.</h1>
+
+      <p class="hero-sub">
+        A structured trading journal built to help you plan, track, review,
+        and improve every trade — powered by the sheet you already use.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#get-started">Get Started</a>
+        <a class="btn btn-secondary" href="#journal">Explore Journal</a>
+      </div>
+
+      <div class="sync-indicator">
+        <span class="sync-dot"></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#8891A5" stroke-width="1.6"/><line x1="3" y1="9" x2="21" y2="9" stroke="#8891A5" stroke-width="1.6"/><line x1="9" y1="9" x2="9" y2="21" stroke="#8891A5" stroke-width="1.6"/></svg>
+        <div>
+          <div class="sync-text-main">Connected to Google Sheets</div>
+          <div class="sync-text-sub">Last updated: 2 minutes ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="orbit-stage" aria-hidden="true">
+      <div class="orbit-ring orbit-ring-1"></div>
+      <div class="orbit-ring orbit-ring-2"></div>
+
+      <div class="orbit-core">
+        <svg width="34" height="34" viewBox="0 0 26 26" fill="none">
+          <path d="M17 8.5C15.9 9.6 15.2 11.2 15.2 13C15.2 14.8 15.9 16.4 17 17.5C15.9 18.2 14.6 18.6 13.2 18.6C9.5 18.6 6.5 15.6 6.5 11.9C6.5 8.4 9.1 5.5 12.5 5.2C14.3 5.6 15.9 6.8 17 8.5Z" fill="#5B8DFF"/>
+        </svg>
+      </div>
+
+      <div class="orbit-node orbit-node--plan">
+        <span class="orbit-node-dot"></span>
+        <span class="orbit-node-label">PLAN</span>
+        <span class="orbit-node-sub">Create &amp; structure</span>
+      </div>
+      <div class="orbit-node orbit-node--execute">
+        <span class="orbit-node-dot"></span>
+        <span class="orbit-node-label">EXECUTE</span>
+        <span class="orbit-node-sub">Follow your plan</span>
+      </div>
+      <div class="orbit-node orbit-node--review">
+        <span class="orbit-node-dot"></span>
+        <span class="orbit-node-label">REVIEW</span>
+        <span class="orbit-node-sub">Track &amp; reflect</span>
+      </div>
+      <div class="orbit-node orbit-node--improve">
+        <span class="orbit-node-dot"></span>
+        <span class="orbit-node-label">IMPROVE</span>
+        <span class="orbit-node-sub">Analyze &amp; grow</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ========== MARKET SNAPSHOT ========== -->
+<section class="market-snapshot" aria-label="Market snapshot">
+  <div class="container">
+    <div class="market-head">
+      <div class="market-label"><span class="market-label-dot"></span> MARKET TODAY</div>
+      <div class="market-note">Indicative values for preview &middot; not a live feed</div>
+    </div>
+
+    <div class="market-strip">
+      <div class="market-item">
+        <div class="market-item-symbol">IHSG</div>
+        <div class="market-item-value mono">7,284.53</div>
+        <div class="market-item-change up mono">+0.87%</div>
+      </div>
+      <div class="market-item">
+        <div class="market-item-symbol">USD/IDR</div>
+        <div class="market-item-value mono">16,255</div>
+        <div class="market-item-change down mono">-0.12%</div>
+      </div>
+      <div class="market-item">
+        <div class="market-item-symbol">GOLD</div>
+        <div class="market-item-value mono">2,450.20</div>
+        <div class="market-item-change up mono">+0.35%</div>
+      </div>
+      <div class="market-item">
+        <div class="market-item-symbol">OIL</div>
+        <div class="market-item-value mono">78.35</div>
+        <div class="market-item-change up mono">+0.48%</div>
+      </div>
+      <div class="market-item">
+        <div class="market-item-symbol">BTC/IDR</div>
+        <div class="market-item-value mono">1,012,400,000</div>
+        <div class="market-item-change down mono">-1.25%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CORE PHILOSOPHY ========== -->
+<section class="philosophy" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">CORE PHILOSOPHY</div>
+      <h2>Plan. Execute. Review. Improve.</h2>
+      <p>A trade isn't one decision — it's a process with four stages. Moonside is built around all four, not just the entry.</p>
+    </div>
+
+    <div class="philosophy-flow">
+      <div class="philo-step">
+        <div class="philo-index mono">01</div>
+        <div class="philo-title">PLAN</div>
+        <div class="philo-desc">Define the setup before entering — entry area, stop loss, and target, written down before emotion gets involved.</div>
+      </div>
+      <div class="philo-step">
+        <div class="philo-index mono">02</div>
+        <div class="philo-title">EXECUTE</div>
+        <div class="philo-desc">Follow the predefined entry, stop loss, and target. Execution is where discipline is tested.</div>
+      </div>
+      <div class="philo-step">
+        <div class="philo-index mono">03</div>
+        <div class="philo-title">REVIEW</div>
+        <div class="philo-desc">Measure what actually happened against what was planned — not what it felt like in the moment.</div>
+      </div>
+      <div class="philo-step">
+        <div class="philo-index mono">04</div>
+        <div class="philo-title">IMPROVE</div>
+        <div class="philo-desc">Identify patterns across trades and continuously refine the process, setup by setup.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ONE SYSTEM POSITIONING ========== -->
+<section class="one-system" id="one-system">
+  <div class="container one-system-grid">
+    <div class="one-system-text">
+      <div class="section-head">
+        <div class="section-eyebrow">ONE SYSTEM</div>
+        <h2>Everything Behind Your Trading Process.</h2>
+        <p>Stop scattering your trading plans across spreadsheets, screenshots, notes, and random charts. Moonside brings the whole process into one structured workspace.</p>
+      </div>
+    </div>
+
+    <div class="equation-card">
+      <div class="equation-item"><span class="equation-item-dot"></span> Trading Plans</div>
+      <div class="equation-plus">+</div>
+      <div class="equation-item"><span class="equation-item-dot"></span> Journal</div>
+      <div class="equation-plus">+</div>
+      <div class="equation-item"><span class="equation-item-dot"></span> Performance</div>
+      <div class="equation-plus">+</div>
+      <div class="equation-item" style="border-bottom:none;"><span class="equation-item-dot"></span> Analytics &amp; Review</div>
+
+      <div class="equation-result">
+        <div class="equation-result-icon">
+          <svg width="16" height="16" viewBox="0 0 26 26" fill="none">
+            <path d="M17 8.5C15.9 9.6 15.2 11.2 15.2 13C15.2 14.8 15.9 16.4 17 17.5C15.9 18.2 14.6 18.6 13.2 18.6C9.5 18.6 6.5 15.6 6.5 11.9C6.5 8.4 9.1 5.5 12.5 5.2C14.3 5.6 15.9 6.8 17 8.5Z" fill="#5B8DFF"/>
+          </svg>
+        </div>
+        <div>
+          <div class="equation-result-name">MOONSIDE</div>
+          <div class="equation-result-sub">One structured trading workspace</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== JOURNAL PREVIEW ========== -->
+<section class="journal-preview" id="journal">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">TRADING JOURNAL</div>
+      <h2>Your Trading Journal, Structured.</h2>
+      <p>Every plan, entry, and result in one table — filterable, sortable, and synced from the sheet you already keep.</p>
+    </div>
+
+    <div class="journal-toolbar">
+      <div class="journal-search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search ticker or setup
+      </div>
+      <div class="journal-filter-chip">Status: All</div>
+      <div class="journal-filter-chip">Bias: All</div>
+      <div class="journal-filter-chip">Date range</div>
+      <div class="journal-toolbar-spacer"></div>
+      <div class="journal-export">Export</div>
+    </div>
+
+    <div class="journal-card">
+      <div class="journal-table-wrap">
+        <table class="journal-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Ticker</th>
+              <th>Setup</th>
+              <th>Bias</th>
+              <th>Entry Area</th>
+              <th>Stoploss</th>
+              <th>Target</th>
+              <th>Status</th>
+              <th>R:R</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="dim">15 Aug 2026</td>
+              <td class="ticker">BBCA</td>
+              <td class="dim">Breakout + Retest</td>
+              <td><span class="badge badge-bullish"><span class="badge-dot"></span>Bullish</span></td>
+              <td class="mono-cell">9,450–9,525</td>
+              <td class="mono-cell">9,250</td>
+              <td class="mono-cell">9,800 / 10,100</td>
+              <td class="status-open">Open</td>
+              <td class="mono-cell">1:2.1</td>
+              <td class="result-pending">—</td>
+            </tr>
+            <tr>
+              <td class="dim">14 Aug 2026</td>
+              <td class="ticker">BMRI</td>
+              <td class="dim">Demand Zone</td>
+              <td><span class="badge badge-bullish"><span class="badge-dot"></span>Bullish</span></td>
+              <td class="mono-cell">6,230–6,300</td>
+              <td class="mono-cell">6,050</td>
+              <td class="mono-cell">6,600 / 6,900</td>
+              <td class="status-closed">Closed</td>
+              <td class="mono-cell">1:2.3</td>
+              <td class="result-win">Win</td>
+            </tr>
+            <tr>
+              <td class="dim">13 Aug 2026</td>
+              <td class="ticker">ICBP</td>
+              <td class="dim">Range Play</td>
+              <td><span class="badge badge-neutral"><span class="badge-dot"></span>Neutral</span></td>
+              <td class="mono-cell">11,300–11,450</td>
+              <td class="mono-cell">11,050</td>
+              <td class="mono-cell">11,700 / 12,000</td>
+              <td class="status-closed">Closed</td>
+              <td class="mono-cell">1:1.6</td>
+              <td class="result-loss">Loss</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="journal-footer">
+        <div class="journal-pagination">
+          <span class="page-dot active">1</span>
+          <span class="page-dot">2</span>
+          <span class="page-dot">3</span>
+          <span>&middot;&nbsp;60 tickers tracked</span>
+        </div>
+        <a class="journal-cta" href="#journal">Explore Journal →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GOOGLE SHEETS SYNC ========== -->
+<section class="sheets-sync">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">GOOGLE SHEETS SYNC</div>
+      <h2>Your Journal. Always Up to Date.</h2>
+      <p>Moonside uses your Google Sheet as the source of your trading journal, keeping your plans synchronized with the platform.</p>
+    </div>
+
+    <div class="sheets-sync-grid">
+      <div class="sync-flow">
+        <div class="sync-flow-node">
+          <span class="sync-flow-dot">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#8891A5" stroke-width="1.6"/><line x1="3" y1="9" x2="21" y2="9" stroke="#8891A5" stroke-width="1.6"/><line x1="9" y1="9" x2="9" y2="21" stroke="#8891A5" stroke-width="1.6"/></svg>
+          </span>
+          <span class="sync-flow-label">Google Sheets</span>
+        </div>
+        <div class="sync-flow-node">
+          <span class="sync-flow-dot">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8891A5" stroke-width="1.8"><path d="M4 4v5h5"/><path d="M20 20v-5h-5"/><path d="M4 9a8 8 0 0114.5-4.5M20 15a8 8 0 01-14.5 4.5"/></svg>
+          </span>
+          <span class="sync-flow-label">Data Sync</span>
+        </div>
+        <div class="sync-flow-node emphasis">
+          <span class="sync-flow-dot">
+            <svg width="14" height="14" viewBox="0 0 26 26" fill="none"><path d="M17 8.5C15.9 9.6 15.2 11.2 15.2 13C15.2 14.8 15.9 16.4 17 17.5C15.9 18.2 14.6 18.6 13.2 18.6C9.5 18.6 6.5 15.6 6.5 11.9C6.5 8.4 9.1 5.5 12.5 5.2C14.3 5.6 15.9 6.8 17 8.5Z" fill="#5B8DFF"/></svg>
+          </span>
+          <span class="sync-flow-label">Moonside</span>
+        </div>
+        <div class="sync-flow-node">
+          <span class="sync-flow-dot">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8891A5" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          </span>
+          <span class="sync-flow-label">Journal</span>
+        </div>
+        <div class="sync-flow-node">
+          <span class="sync-flow-dot">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8891A5" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+          </span>
+          <span class="sync-flow-label">Analytics</span>
+        </div>
+      </div>
+
+      <div class="sync-card">
+        <div class="sync-card-status">
+          <span class="sync-dot"></span> Connected
+        </div>
+
+        <div class="sync-card-row">
+          <span class="sync-card-row-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#8891A5" stroke-width="1.6"/><line x1="3" y1="9" x2="21" y2="9" stroke="#8891A5" stroke-width="1.6"/><line x1="9" y1="9" x2="9" y2="21" stroke="#8891A5" stroke-width="1.6"/></svg>
+            Google Sheets
+          </span>
+          <span class="sync-card-row-value">Master Tracking (PLAN A)</span>
+        </div>
+        <div class="sync-card-row">
+          <span class="sync-card-row-label">Last synchronization</span>
+          <span class="sync-card-row-value">2 minutes ago</span>
+        </div>
+        <div class="sync-card-row">
+          <span class="sync-card-row-label">Rows imported</span>
+          <span class="sync-card-row-value">342</span>
+        </div>
+
+        <div class="sync-card-actions">
+          <a class="btn btn-primary" href="#get-started">Sync Now</a>
+          <a class="btn btn-secondary" href="#login">Manage Connection</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ANALYTICS PREVIEW ========== -->
+<section class="analytics-preview" id="analytics">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">ANALYTICS PREVIEW</div>
+      <h2>Turn Your Journal Into an Edge.</h2>
+      <p>Sample analytics preview — once your journal is connected, these numbers reflect your own trading history.</p>
+    </div>
+
+    <div class="metric-row">
+      <div class="metric-card">
+        <div class="metric-card-label">WIN RATE</div>
+        <div class="metric-card-value mono">64.4%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-card-label">PROFIT FACTOR</div>
+        <div class="metric-card-value mono">1.78</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-card-label">AVERAGE R:R</div>
+        <div class="metric-card-value mono">1:2.18</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-card-label">EXPECTANCY</div>
+        <div class="metric-card-value mono positive">+0.54R</div>
+      </div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-card-title">Equity Curve</div>
+        <div class="chart-card-caption">+23.6R over 87 trades</div>
+        <svg class="equity-svg" viewBox="0 0 300 90" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="equityFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5B8DFF" stop-opacity="0.28"/>
+              <stop offset="100%" stop-color="#5B8DFF" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,78 L20,74 L40,68 L60,70 L80,58 L100,60 L120,46 L140,50 L160,36 L180,40 L200,26 L220,30 L240,16 L260,20 L280,8 L300,10 L300,90 L0,90 Z" fill="url(#equityFill)"/>
+          <path d="M0,78 L20,74 L40,68 L60,70 L80,58 L100,60 L120,46 L140,50 L160,36 L180,40 L200,26 L220,30 L240,16 L260,20 L280,8 L300,10" fill="none" stroke="#5B8DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-card-title">Win Rate by Setup</div>
+        <div class="chart-card-caption">4 tracked setups</div>
+        <div class="setup-bar-row">
+          <span class="setup-bar-label">Breakout</span>
+          <span class="setup-bar-track"><span class="setup-bar-fill" style="width:70.4%"></span></span>
+          <span class="setup-bar-value mono">70.4%</span>
+        </div>
+        <div class="setup-bar-row">
+          <span class="setup-bar-label">Trend Continuation</span>
+          <span class="setup-bar-track"><span class="setup-bar-fill" style="width:66.7%"></span></span>
+          <span class="setup-bar-value mono">66.7%</span>
+        </div>
+        <div class="setup-bar-row">
+          <span class="setup-bar-label">Demand Zone</span>
+          <span class="setup-bar-track"><span class="setup-bar-fill" style="width:61.8%"></span></span>
+          <span class="setup-bar-value mono">61.8%</span>
+        </div>
+        <div class="setup-bar-row">
+          <span class="setup-bar-label">Range Play</span>
+          <span class="setup-bar-track"><span class="setup-bar-fill" style="width:48%"></span></span>
+          <span class="setup-bar-value mono">48.0%</span>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-card-title">Monthly Performance</div>
+        <div class="chart-card-caption">Last 6 months, in R</div>
+        <div class="monthly-chart">
+          <div class="monthly-col">
+            <div class="monthly-bar positive" style="height:58%"></div>
+            <span class="monthly-label">Mar</span>
+          </div>
+          <div class="monthly-col">
+            <div class="monthly-bar positive" style="height:34%"></div>
+            <span class="monthly-label">Apr</span>
+          </div>
+          <div class="monthly-col">
+            <div class="monthly-bar negative" style="height:12%"></div>
+            <span class="monthly-label">May</span>
+          </div>
+          <div class="monthly-col">
+            <div class="monthly-bar positive" style="height:74%"></div>
+            <span class="monthly-label">Jun</span>
+          </div>
+          <div class="monthly-col">
+            <div class="monthly-bar positive" style="height:38%"></div>
+            <span class="monthly-label">Jul</span>
+          </div>
+          <div class="monthly-col">
+            <div class="monthly-bar positive" style="height:28%"></div>
+            <span class="monthly-label">Aug</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-card-title">R-Multiple Distribution</div>
+        <div class="chart-card-caption">Trades bucketed by result</div>
+        <div class="rdist-chart">
+          <div class="rdist-col">
+            <div class="rdist-bar negative" style="height:22%"></div>
+            <span class="rdist-label">-2R</span>
+          </div>
+          <div class="rdist-col">
+            <div class="rdist-bar negative" style="height:40%"></div>
+            <span class="rdist-label">-1R</span>
+          </div>
+          <div class="rdist-col">
+            <div class="rdist-bar positive" style="height:28%"></div>
+            <span class="rdist-label">0R</span>
+          </div>
+          <div class="rdist-col">
+            <div class="rdist-bar positive" style="height:62%"></div>
+            <span class="rdist-label">+1R</span>
+          </div>
+          <div class="rdist-col">
+            <div class="rdist-bar positive" style="height:88%"></div>
+            <span class="rdist-label">+2R</span>
+          </div>
+          <div class="rdist-col">
+            <div class="rdist-bar positive" style="height:52%"></div>
+            <span class="rdist-label">+3R</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FEATURES ========== -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">FEATURES</div>
+      <h2>Everything a Disciplined Trader Needs.</h2>
+      <p>One workspace for the whole process — from writing a plan to understanding why it worked.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3h6v3H9z"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+        </div>
+        <div class="feature-title">Structured Trading Plans</div>
+        <div class="feature-desc">Every trade begins with a defined plan — entry, stop loss, and target, before you execute.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v5h5"/><path d="M20 20v-5h-5"/><path d="M4 9a8 8 0 0114.5-4.5M20 15a8 8 0 01-14.5 4.5"/></svg>
+        </div>
+        <div class="feature-title">Google Sheets Sync</div>
+        <div class="feature-desc">Keep your existing journal as the data source — no migration, no re-entering trades.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+        </div>
+        <div class="feature-title">Performance Analytics</div>
+        <div class="feature-desc">Understand your actual trading performance through win rate, R:R, and expectancy.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>
+        </div>
+        <div class="feature-title">Setup Analysis</div>
+        <div class="feature-desc">Discover which setups actually produce results, and which ones only feel good.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
+        </div>
+        <div class="feature-title">Risk &amp; R:R</div>
+        <div class="feature-desc">Track risk before and after execution, so every trade is sized on purpose.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+        </div>
+        <div class="feature-title">Trading Calendar</div>
+        <div class="feature-desc">Review performance by day and period, and spot patterns over time.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><circle cx="11.5" cy="10" r="2"/></svg>
+        </div>
+        <div class="feature-title">Journal Review</div>
+        <div class="feature-desc">Understand why trades worked or failed, with your thesis and result side by side.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.5 5.5l2 2M16.5 16.5l2 2M5.5 18.5l2-2M16.5 7.5l2-2"/></svg>
+        </div>
+        <div class="feature-title">Data-Driven Decisions</div>
+        <div class="feature-desc">Replace memory and emotion with measurable data from your own trading history.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRINCIPLES (conceptual, no fabricated testimonials) ========== -->
+<section class="principles">
+  <div class="container">
+    <div class="principles-head">
+      <div class="section-eyebrow">PHILOSOPHY</div>
+      <h2>Built Around Process, Not Prediction.</h2>
+    </div>
+
+    <div class="principles-row">
+      <div class="principle-item">
+        <div class="principle-primary">Clarity</div>
+        <div class="principle-secondary">over noise</div>
+      </div>
+      <div class="principle-item">
+        <div class="principle-primary">Process</div>
+        <div class="principle-secondary">over prediction</div>
+      </div>
+      <div class="principle-item">
+        <div class="principle-primary">Data</div>
+        <div class="principle-secondary">over emotion</div>
+      </div>
+      <div class="principle-item">
+        <div class="principle-primary">Discipline</div>
+        <div class="principle-secondary">over impulse</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-name">
+          <svg width="20" height="20" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="12.5" stroke="#5B8DFF" stroke-width="1"/>
+            <path d="M17 8.5C15.9 9.6 15.2 11.2 15.2 13C15.2 14.8 15.9 16.4 17 17.5C15.9 18.2 14.6 18.6 13.2 18.6C9.5 18.6 6.5 15.6 6.5 11.9C6.5 8.4 9.1 5.5 12.5 5.2C14.3 5.6 15.9 6.8 17 8.5Z" fill="#5B8DFF"/>
+          </svg>
+          MOONSIDE
+        </div>
+        <div class="footer-brand-tag mono">MARKET INTELLIGENCE ENGINE</div>
+        <div class="footer-brand-desc">Built with discipline. Backed by data.</div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">PRODUCT</div>
+        <div class="footer-links">
+          <a class="footer-link" href="#journal">Journal</a>
+          <a class="footer-link" href="#analytics">Analytics</a>
+          <a class="footer-link" href="#">Performance</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">RESOURCES</div>
+        <div class="footer-links">
+          <a class="footer-link" href="#">Documentation</a>
+          <a class="footer-link" href="#about">About</a>
+          <a class="footer-link" href="#">Support</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">CONNECT</div>
+        <div class="footer-links">
+          <a class="footer-link" href="#">Instagram</a>
+          <a class="footer-link" href="#">X</a>
+          <a class="footer-link" href="#">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Moonside. All rights reserved.</span>
+      <span class="dyor-tag">#DYOR</span>
+    </div>
+
+    <div class="footer-disclaimer">
+      Disclaimer: Moonside is an educational and analytical tool. It does not provide personalized financial advice.
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>
