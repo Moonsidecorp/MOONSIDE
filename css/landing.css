@@ -26,6 +26,18 @@
   gap: 10px;
 }
 
+.nav-brand-mark {
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+
+.footer-brand-mark {
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+
 .nav-brand-name {
   font-family: var(--font-display);
   font-weight: 600;
@@ -253,6 +265,15 @@
   justify-content: center;
   z-index: 2;
   box-shadow: 0 0 40px var(--blue-glow);
+  overflow: hidden;
+}
+
+.orbit-core-mark {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 .orbit-node {
