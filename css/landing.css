@@ -1317,3 +1317,4 @@
   .footer-grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 36px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+
