@@ -51,8 +51,12 @@ class Config:
         "MOONSIDE_SHEET_ID",
         "1YjTmrg7mZgIIVUg8jf4MZ7vvv_X6KJGlGnBqgUyg-zs",
     )
-    WATCHLIST_TAB_NAME = os.environ.get("WATCHLIST_TAB_NAME", "Journal")
-    WATCHLIST_COLUMN_NAME = os.environ.get("WATCHLIST_COLUMN_NAME", "Kode Saham")
+    WATCHLIST_TAB_NAME = os.environ.get("WATCHLIST_TAB_NAME", "📋 Master Tracking (PLAN A)")
+    WATCHLIST_COLUMN_NAME = os.environ.get("WATCHLIST_COLUMN_NAME", "Ticker")
+    # Baris di mana header kolom (No, Plan, Sektor, Ticker, ...) berada di
+    # tab watchlist. Di "Master Tracking (PLAN A)" ada 4 baris judul/catatan
+    # sebelum header asli, jadi header ada di baris ke-5 (bukan baris 1).
+    WATCHLIST_HEADER_ROW = int(os.environ.get("WATCHLIST_HEADER_ROW", "5"))
     SENT_LOG_TAB_NAME = os.environ.get("SENT_LOG_TAB_NAME", "Engine_Sent_Log")
     GOOGLE_SERVICE_ACCOUNT_JSON = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
 
@@ -260,7 +264,7 @@ def get_watchlist() -> list:
     client = _get_sheets_client()
     sheet = client.open_by_key(Config.SHEET_ID)
     ws = sheet.worksheet(Config.WATCHLIST_TAB_NAME)
-    records = ws.get_all_records()
+    records = ws.get_all_records(head=Config.WATCHLIST_HEADER_ROW)
 
     col = Config.WATCHLIST_COLUMN_NAME
     codes = set()
