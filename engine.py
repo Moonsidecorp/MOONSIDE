@@ -185,7 +185,29 @@ def fetch_raw_announcements() -> list:
                     sep = "&" if "?" in url else "?"
                     url = f"{url}{sep}page={page_num}"
 
-                page.goto(url, wait_until="networkidle", timeout=30000)
+                try:
+                    page.goto(url, wait_until="domcontentloaded", timeout=45000)
+                    # Tunggu window.__NUXT__ benar-benar terisi, bukan cuma
+                    # nunggu network "idle" -- situs modern sering punya
+                    # polling/analytics background yang bikin networkidle
+                    # tidak pernah tercapai walau konten utama sudah render.
+                    page.wait_for_function(
+                        "() => window.__NUXT__ !== undefined && window.__NUXT__ !== null",
+                        timeout=20000,
+                    )
+                except Exception as e:
+                    # Diagnostik: ambil sedikit isi halaman biar kelihatan
+                    # apakah ini render lambat biasa atau halaman diblokir
+                    # (misal Cloudflare challenge / captcha / IP diblokir).
+                    try:
+                        title = page.title()
+                        snippet = page.content()[:300]
+                    except Exception:
+                        title, snippet = "(gagal ambil title)", "(gagal ambil isi halaman)"
+                    print(f"[DEBUG] Gagal load halaman IDX. Title: {title!r}")
+                    print(f"[DEBUG] Cuplikan HTML (300 char pertama): {snippet!r}")
+                    raise
+
                 nuxt_state = _extract_nuxt_state(page)
                 items = _find_announcement_list(nuxt_state)
 
