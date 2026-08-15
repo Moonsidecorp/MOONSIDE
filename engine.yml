@@ -1,0 +1,32 @@
+name: MOONSIDE Engine
+
+on:
+  schedule:
+    # Tiap 15 menit, jam bursa WIB (UTC+7): 09:00-16:00 WIB = 02:00-09:00 UTC
+    # Hari kerja Senin-Jumat (1-5)
+    - cron: "*/15 2-9 * * 1-5"
+  workflow_dispatch: {} # buat trigger manual pas testing
+
+jobs:
+  run-engine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Engine
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          MOONSIDE_SHEET_ID: ${{ secrets.MOONSIDE_SHEET_ID }}
+          IDX_ANNOUNCEMENT_ENDPOINT: ${{ secrets.IDX_ANNOUNCEMENT_ENDPOINT }}
+        run: python -m engine.main
