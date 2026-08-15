@@ -119,17 +119,6 @@
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -220px;
-  right: -160px;
-  width: 620px;
-  height: 620px;
-  background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
-  pointer-events: none;
-}
-
 .hero-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -233,97 +222,53 @@
   justify-content: center;
 }
 
-.orbit-ring {
+.hero-stars {
   position: absolute;
-  border: 1px solid var(--border);
+  inset: 0;
   border-radius: 50%;
-}
-
-.orbit-ring-1 { width: 100%; height: 100%; }
-.orbit-ring-2 {
-  width: 72%;
-  height: 72%;
-  border-style: dashed;
-  border-color: var(--border-soft);
-  animation: spin 90s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  background-image:
+    radial-gradient(1.5px 1.5px at 40% 19%, rgba(255,255,255,0.71), transparent 100%),
+    radial-gradient(1px 1px at 9% 68%, rgba(255,255,255,0.55), transparent 100%),
+    radial-gradient(1px 1px at 7% 65%, rgba(255,255,255,0.37), transparent 100%),
+    radial-gradient(1px 1px at 54% 54%, rgba(255,255,255,0.48), transparent 100%),
+    radial-gradient(1px 1px at 69% 54%, rgba(255,255,255,0.8), transparent 100%),
+    radial-gradient(2px 2px at 15% 28%, rgba(255,255,255,0.7), transparent 100%),
+    radial-gradient(1.5px 1.5px at 8% 74%, rgba(255,255,255,0.57), transparent 100%),
+    radial-gradient(1.5px 1.5px at 28% 6%, rgba(255,255,255,0.82), transparent 100%),
+    radial-gradient(1px 1px at 36% 54%, rgba(255,255,255,0.65), transparent 100%),
+    radial-gradient(1.5px 1.5px at 71% 39%, rgba(255,255,255,0.8), transparent 100%),
+    radial-gradient(1.5px 1.5px at 22% 13%, rgba(255,255,255,0.66), transparent 100%),
+    radial-gradient(1px 1px at 23% 47%, rgba(255,255,255,0.65), transparent 100%),
+    radial-gradient(1px 1px at 8% 72%, rgba(255,255,255,0.69), transparent 100%),
+    radial-gradient(1.5px 1.5px at 62% 87%, rgba(255,255,255,0.59), transparent 100%),
+    radial-gradient(1.5px 1.5px at 39% 60%, rgba(255,255,255,0.86), transparent 100%),
+    radial-gradient(1px 1px at 46% 38%, rgba(255,255,255,0.79), transparent 100%),
+    radial-gradient(1.5px 1.5px at 37% 67%, rgba(255,255,255,0.83), transparent 100%),
+    radial-gradient(1px 1px at 91% 57%, rgba(255,255,255,0.68), transparent 100%),
+    radial-gradient(1.5px 1.5px at 9% 15%, rgba(255,255,255,0.58), transparent 100%),
+    radial-gradient(2px 2px at 53% 5%, rgba(255,255,255,0.39), transparent 100%),
+    radial-gradient(1.5px 1.5px at 44% 76%, rgba(255,255,255,0.67), transparent 100%),
+    radial-gradient(1px 1px at 58% 8%, rgba(255,255,255,0.87), transparent 100%);
+  z-index: 0;
 }
 
 .orbit-core {
   position: relative;
-  width: 92px;
-  height: 92px;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #1A2338, #0A0E17);
-  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 0 40px var(--blue-glow);
-  overflow: hidden;
 }
 
 .orbit-core-mark {
-  width: 88px;
-  height: 88px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-}
-
-.orbit-node {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  animation: float 6s ease-in-out infinite;
-}
-
-.orbit-node-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 14px var(--blue-glow-strong);
-}
-
-.orbit-node-label {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.05em;
-  color: var(--text);
-  text-align: center;
-  white-space: nowrap;
-}
-
-.orbit-node-sub {
-  font-size: 9.5px;
-  color: var(--text-faint);
-  text-align: center;
-  white-space: nowrap;
-}
-
-.orbit-node--plan    { top: 2%;  left: 50%; transform: translateX(-50%); animation-delay: 0s; }
-.orbit-node--execute { top: 50%; right: 0%; transform: translateY(-50%); animation-delay: 1.5s; }
-.orbit-node--review  { bottom: 2%; left: 50%; transform: translateX(-50%); animation-delay: 3s; }
-.orbit-node--improve { top: 50%; left: 0%; transform: translateY(-50%); animation-delay: 4.5s; }
-
-@keyframes float {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, -6px); }
-}
-.orbit-node--execute, .orbit-node--improve {
-  animation-name: floatX;
-}
-@keyframes floatX {
-  0%, 100% { transform: translateY(-50%); }
-  50% { transform: translateY(calc(-50% - 6px)); }
 }
 
 @media (max-width: 900px) {
@@ -336,7 +281,6 @@
   .hero { padding: 56px 0 56px; }
   .hero h1 { font-size: 31px; }
   .hero-sub { font-size: 15px; }
-  .orbit-node-sub { display: none; }
 }
 
 /* ============================================================
